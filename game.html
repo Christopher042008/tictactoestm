@@ -2,13 +2,31 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <title>Tic Tac STM</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #back-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 8px;
+            border: none;
+            background-color: #0a0027;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+
+        #back-button:hover {
+            background-color: #1a0037;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
         <div id="score-indicator">Skor: <span id="player1-score">0</span> - <span id="player2-score">0</span></div>
-        <div id="turn-indicator">Giliran: <span id="current-player">X</span></div> <!-- Indikator Giliran -->
+        <div id="turn-indicator">Giliran: <span id="current-player">X</span></div>
+
         <div class="container">
             <button class="button-option"></button>
             <button class="button-option"></button>
@@ -20,14 +38,24 @@
             <button class="button-option"></button>
             <button class="button-option"></button>
         </div>
-        <button id="restart">Restart</button>
+
+        <button id="restart">Reset</button>
+        <button id="back-button">Kembali</button>
     </div>
 
     <div class="popup hide">
-        <p id="message">Sample Message</p>
-        <button id="new-game">New Game</button>
+        <p id="message">SIKAT</p>
+        <button id="new-game">Game Baru</button>
     </div>
 
-    <script src="script.js"></script>
+    <audio id="bgm" src="bgm.mp3" autoplay></audio>
+
+    <audio id="win-sound" src="winner.mp3"></audio>
+    <audio id="draw-sound" src="draw.mp3"></audio>
+
+
+    <script src="script.js">
+      
+    </script>
 </body>
 </html>

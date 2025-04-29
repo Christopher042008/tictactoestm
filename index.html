@@ -2,26 +2,73 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe - Input</title>
+    <title>Tic Tac STM</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        
+        .lobby-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .lobby-title {
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .lobby-button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border-radius: 10px;
+            border: none;
+            background-color: #0a0027;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .lobby-button:hover {
+            background-color: #1a0037;
+        }
+    </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="input-container">
-            <input type="text" id="player1" placeholder="Nama Pemain 1 (X)" required>
-            <input type="text" id="player2" placeholder="Nama Pemain 2 (O)" required>
-            <button id="start-game">Mulai Game</button>
-        </div>
+    <div class="lobby-container">
+        <div class="lobby-title">Tic Tac STM</div>
+        <button class="lobby-button" id="start-btn">Mulai</button>
+        <button class="lobby-button" id="settings-btn">Pengaturan</button>
     </div>
 
+    <audio id="bgm" src="bgm.mp3" loop autoplay muted></audio>
+
     <script>
-        document.getElementById("start-game").addEventListener("click", () => {
-            const player1Name = document.getElementById("player1").value;
-            const player2Name = document.getElementById("player2").value;
-            localStorage.setItem("player1Name", player1Name);
-            localStorage.setItem("player2Name", player2Name);
-            window.location.href = "game.html"; // Pindah ke halaman game
+        document.getElementById("start-btn").addEventListener("click", () => {
+            window.location.href = "inputnama.html";
         });
+
+        document.getElementById("settings-btn").addEventListener("click", () => {
+            window.location.href = "settings.html"; 
+        });
+
+        const bgm = document.getElementById("bgm");
+
+    window.addEventListener("load", () => {
+        const musicSetting = localStorage.getItem("musicOn");
+        
+        if (musicSetting === null || musicSetting === "true") {
+            bgm.muted = false;
+            bgm.volume = 0.2;
+            bgm.play().catch((e) => console.log("Autoplay blocked", e));
+        } else {
+            bgm.pause();
+        }
+    });
     </script>
 </body>
 </html>

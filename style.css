@@ -29,11 +29,11 @@ body {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  transition: border 0.3s; /* Transisi border */
+  transition: border 0.3s;
 }
 
 .input-container input:focus {
-  border: 1px solid #d161ff; /* Warna border saat fokus */
+  border: 1px solid #d161ff;
 }
 
 .container {
@@ -46,23 +46,23 @@ body {
 
 .button-option {
   background: #ffffff;
-  height: 18vmin; /* Ukuran untuk grid 3x3 */
-  width: 18vmin; /* Ukuran untuk grid 3x3 */
+  height: 18vmin;
+  width: 18vmin;
   border: none;
   border-radius: 8px;
   font-size: 12vmin;
   color: #d161ff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat */
-  transition: background 0.3s, transform 0.3s; /* Transisi untuk efek hover */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.3s;
 }
 
 .button-option:hover {
-  background: #f0f0f0; /* Warna latar belakang saat hover */
-  transform: scale(1.05); /* Efek zoom saat hover */
+  background: #f0f0f0;
+  transform: scale(1.05);
 }
 
 #new-game, #restart {
-  font-size: 1.2em; /* Ukuran font yang lebih besar */
+  font-size: 1.2em;
   padding: 1em;
   border-radius: 8px;
   background-color: #0a0027;
@@ -71,11 +71,28 @@ body {
   position: relative;
   margin: 1.5em auto 0 auto;
   display: block;
-  transition: background 0.3s; /* Transisi untuk efek hover */
+  transition: background 0.3s;
 }
 
 #new-game:hover, #restart:hover {
-  background-color: #1a0037; /* Warna latar belakang saat hover */
+  background-color: #1a0037;
+}
+
+#new-game, #back-btn {
+  font-size: 1.2em;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: #0a0027;
+  color: #ffffff;
+  border: none;
+  position: relative;
+  margin: 1.5em auto 0 auto;
+  display: block;
+  transition: background 0.3s;
+}
+
+#new-game:hover, #back-btn:hover {
+  background-color: #1a0037;
 }
 
 .popup {
@@ -89,15 +106,15 @@ body {
   justify-content: center;
   flex-direction: column;
   gap: 1em;
-  padding: 20px; /* Tambahkan padding untuk ruang di dalam popup */
-  border-radius: 10px; /* Tambahkan border-radius untuk sudut yang lebih halus */
-  animation: fadeIn 0.5s; /* Tambahkan efek animasi saat muncul */
+  padding: 20px;
+  border-radius: 10px;
+  animation: fadeIn 0.5s;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.8); /* Efek zoom saat muncul */
+    transform: scale(0.8);
   }
   to {
     opacity: 1;
@@ -108,11 +125,11 @@ body {
 #message {
   color: #ffffff;
   text-align: center;
-  font-size: 2em; /* Ukuran font yang lebih besar untuk pesan */
-  font-weight: bold; /* Tebal untuk menonjolkan pesan */
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Bayangan teks */
-  margin: 0; /* Hapus margin untuk menjaga keselarasan */
-  animation: bounce 0.5s infinite alternate; /* Tambahkan efek animasi bounce */
+  font-size: 2em;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  animation: bounce 0.5s infinite alternate;
 }
 
 @keyframes bounce {
@@ -120,7 +137,7 @@ body {
     transform: translateY(0);
   }
   to {
-    transform: translateY(-10px); /* Efek bounce */
+    transform: translateY(-10px);
   }
 }
 
@@ -129,21 +146,21 @@ body {
 }
 
 #turn-indicator {
-  font-size: 1.5em; /* Ukuran font untuk indikator giliran */
-  color: #ffffff; /* Warna teks */
-  text-align: center; /* Pusatkan teks */
-  margin-bottom: 10px; /* Jarak bawah yang lebih kecil */
+  font-size: 1.5em;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .header {
   display: flex;
-  justify-content: space-between; /* Memisahkan indikator giliran dan skor */
-  align-items: center; /* Pusatkan secara vertikal */
-  margin-bottom: 20px; /* Jarak bawah */
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 #score-indicator {
-  font-size: 1.5em; /* Ukuran font untuk indikator skor */
-  color: #ffffff; /* Warna teks */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Bayangan teks untuk skor */
+  font-size: 1.5em;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }

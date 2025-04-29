@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac STM</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+        body {
+            background: linear-gradient(135deg, #8052ec, #d161ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: "Raleway", sans-serif;
+        }
+
+        .wrapper {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .title {
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .input-container input {
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+
+        .input-container input:focus {
+            box-shadow: 0 0 10px #d161ff;
+            border: 2px solid #d161ff;
+        }
+
+        #start-game {
+            background-color: #0a0027;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        #start-game:hover {
+            background-color: #1a0037;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">Tic Tac STM</div>
+        <div class="input-container">
+            <input type="text" id="player1" placeholder="Nama Pemain 1 (X)" required>
+            <input type="text" id="player2" placeholder="Nama Pemain 2 (O)" required>
+            <button id="start-game">Mulai Game</button>
+        </div>
+    </div>
+
+    <audio id="bgm" src="bgm.mp3" loop autoplay muted></audio>
+
+    <script>
+        document.getElementById("start-game").addEventListener("click", () => {
+            const player1Name = document.getElementById("player1").value;
+            const player2Name = document.getElementById("player2").value;
+            if (player1Name.trim() === "" || player2Name.trim() === "") {
+                alert("Masukkan nama kedua pemain!");
+                return;
+            }
+            localStorage.setItem("player1Name", player1Name);
+            localStorage.setItem("player2Name", player2Name);
+            window.location.href = "game.html";
+        });
+
+        const bgm = document.getElementById("bgm");
+
+    window.addEventListener("load", () => {
+        const musicSetting = localStorage.getItem("musicOn");
+        
+        if (musicSetting === null || musicSetting === "true") {
+            bgm.muted = false;
+            bgm.volume = 0.2;
+            bgm.play().catch((e) => console.log("Autoplay blocked", e));
+        } else {
+            bgm.pause();
+        }
+    });
+    </script>
+</body>
+</html>

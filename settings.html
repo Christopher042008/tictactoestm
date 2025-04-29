@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengaturan</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .settings-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .settings-title {
+            font-size: 2.5em;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .setting-option {
+            font-size: 1.5em;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            border: none;
+            background-color: #0a0027;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #1a0037;
+        }
+
+        #music-status {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="settings-container">
+        <div class="settings-title">Pengaturan</div>
+
+        <div class="setting-option">
+            <label>
+                <input type="checkbox" id="music-checkbox">
+                Musik: <span id="music-status">ON</span>
+            </label>
+        </div>
+
+        <button class="back-button" id="back-btn">Kembali</button>
+    </div>
+
+    <audio id="bgm" src="bgm.mp3" autoplay muted></audio>
+
+    <script>
+        const musicCheckbox = document.getElementById("music-checkbox");
+        const musicStatus = document.getElementById("music-status");
+
+        const bgm = document.getElementById("bgm");
+
+    window.addEventListener("load", () => {
+        const musicSetting = localStorage.getItem("musicOn");
+        
+        if (musicSetting === null || musicSetting === "true") {
+            bgm.muted = false;
+            bgm.volume = 0.2;
+            bgm.play().catch((e) => console.log("Autoplay blocked", e));
+        } else {
+            bgm.pause();
+        }
+    });
+
+
+        if (localStorage.getItem("musicOn") === "false") {
+            musicCheckbox.checked = false;
+            musicStatus.textContent = "OFF";
+        } else {
+            musicCheckbox.checked = true;
+            musicStatus.textContent = "ON";
+        }
+
+        musicCheckbox.addEventListener("change", () => {
+            if (musicCheckbox.checked) {
+                localStorage.setItem("musicOn", "true");
+                musicStatus.textContent = "ON";
+            } else {
+                localStorage.setItem("musicOn", "false");
+                musicStatus.textContent = "OFF";
+            }
+        });
+
+        document.getElementById("back-btn").addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
