@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - Input</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="input-container">
+            <input type="text" id="player1" placeholder="Nama Pemain 1 (X)" required>
+            <input type="text" id="player2" placeholder="Nama Pemain 2 (O)" required>
+            <button id="start-game">Mulai Game</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("start-game").addEventListener("click", () => {
+            const player1Name = document.getElementById("player1").value;
+            const player2Name = document.getElementById("player2").value;
+            localStorage.setItem("player1Name", player1Name);
+            localStorage.setItem("player2Name", player2Name);
+            window.location.href = "game.html"; // Pindah ke halaman game
+        });
+    </script>
+</body>
+</html>

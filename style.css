@@ -1,0 +1,149 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #8052ec, #d161ff);
+}
+
+.wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: border 0.3s; /* Transisi border */
+}
+
+.input-container input:focus {
+  border: 1px solid #d161ff; /* Warna border saat fokus */
+}
+
+.container {
+  width: 60vmin;
+  height: 60vmin;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vmin;
+}
+
+.button-option {
+  background: #ffffff;
+  height: 18vmin; /* Ukuran untuk grid 3x3 */
+  width: 18vmin; /* Ukuran untuk grid 3x3 */
+  border: none;
+  border-radius: 8px;
+  font-size: 12vmin;
+  color: #d161ff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat */
+  transition: background 0.3s, transform 0.3s; /* Transisi untuk efek hover */
+}
+
+.button-option:hover {
+  background: #f0f0f0; /* Warna latar belakang saat hover */
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+#new-game, #restart {
+  font-size: 1.2em; /* Ukuran font yang lebih besar */
+  padding: 1em;
+  border-radius: 8px;
+  background-color: #0a0027;
+  color: #ffffff;
+  border: none;
+  position: relative;
+  margin: 1.5em auto 0 auto;
+  display: block;
+  transition: background 0.3s; /* Transisi untuk efek hover */
+}
+
+#new-game:hover, #restart:hover {
+  background-color: #1a0037; /* Warna latar belakang saat hover */
+}
+
+.popup {
+  background: linear-gradient(135deg, #8052ec, #d161ff);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+  padding: 20px; /* Tambahkan padding untuk ruang di dalam popup */
+  border-radius: 10px; /* Tambahkan border-radius untuk sudut yang lebih halus */
+  animation: fadeIn 0.5s; /* Tambahkan efek animasi saat muncul */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8); /* Efek zoom saat muncul */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#message {
+  color: #ffffff;
+  text-align: center;
+  font-size: 2em; /* Ukuran font yang lebih besar untuk pesan */
+  font-weight: bold; /* Tebal untuk menonjolkan pesan */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Bayangan teks */
+  margin: 0; /* Hapus margin untuk menjaga keselarasan */
+  animation: bounce 0.5s infinite alternate; /* Tambahkan efek animasi bounce */
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px); /* Efek bounce */
+  }
+}
+
+.popup.hide {
+  display: none;
+}
+
+#turn-indicator {
+  font-size: 1.5em; /* Ukuran font untuk indikator giliran */
+  color: #ffffff; /* Warna teks */
+  text-align: center; /* Pusatkan teks */
+  margin-bottom: 10px; /* Jarak bawah yang lebih kecil */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; /* Memisahkan indikator giliran dan skor */
+  align-items: center; /* Pusatkan secara vertikal */
+  margin-bottom: 20px; /* Jarak bawah */
+}
+
+#score-indicator {
+  font-size: 1.5em; /* Ukuran font untuk indikator skor */
+  color: #ffffff; /* Warna teks */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Bayangan teks untuk skor */
+}
